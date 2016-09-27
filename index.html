@@ -10,7 +10,6 @@
 <body>
 
 
-
 <table>
   <tr>
     <td class="rowName">Name:</td>
@@ -18,7 +17,7 @@
   </tr>
   <tr>
     <td class="rowName">Avatar:</td>
-    <td id="avatar"><img src="" alt="" id="charPic"/></td>
+    <td id="avatar"><img src="" alt="Avatar Image" id="charPic"/></td>
   </tr>
    <tr>
     <td class="rowName">Realm:</td>
@@ -39,8 +38,13 @@
         <label class="input-label" for="charRealm">Character Realm</label>
         <input type="text" name="charRealm" id="charRealm">
     </div>
+    <select class="input-select" name="charRegion">
+        <option value="eu">EURO</option>
+        <option value="us">US</option>
+    </select>
     <input type="submit" value="SEND" onclick="submitFunction()">
 </div>
+
 
 <script src="functions.js"></script>
 </body>

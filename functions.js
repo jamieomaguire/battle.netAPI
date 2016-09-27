@@ -2,6 +2,19 @@ function submitFunction() {
 
     var formName = document.getElementsByName('charName')[0].value;
     var formRealm = document.getElementsByName('charRealm')[0].value;
+    var formRegion = document.getElementsByName('charRegion')[0].value;
+
+    // Check realm for spaces
+    if (formRealm.match(/\s/g)) {
+        formRealm.replace(/\s/g, "%20");
+    }
+
+    var language = 'en_GB';
+
+    // Check if region is GB or US
+    if (formRegion == 'us') {
+        language = 'en_US';
+    }
 
     //
     // Rest of program happens after submit
@@ -9,12 +22,18 @@ function submitFunction() {
 
     // Declare variables
     var charName = formName;
-    var charRealm = formRealm
+    var charRealm = formRealm;
+    var charRegion = formRegion;
     // Provide your API key here
     var apiKey = '';
+    var urlPart1 = 'https://' + formRegion + '.api.battle.net/wow/character/';
+    var urlPart2 = '/';
+    var urlPart3 = '?locale=' + language + '&apikey='
 
-    var warcraftUrl = 'https://eu.api.battle.net/wow/character/' + charRealm + '/' + charName + '?locale=en_GB&apikey=' + apiKey;
+    // URL made up of smaller components due to different realm and language options
+    var warcraftUrl = urlPart1 + charRealm + urlPart2 + charName + urlPart3 + apiKey;
 
+    console.log(warcraftUrl);
 
     // Cross Orign Resource Sharing
     function getCORS(url, success) {
@@ -51,7 +70,7 @@ function submitFunction() {
         }
 
         function setCharPicSrc(){
-            var imgSrc = 'https://render-api-eu.worldofwarcraft.com/static-render/eu/';
+            var imgSrc = 'https://render-api-'+ charRegion + '.worldofwarcraft.com/static-render/' + charRegion + '/';
             imgSrc += awesomeJson["thumbnail"];
             var expression = /avatar/;
             imgSrc = imgSrc.replace(expression, 'profilemain');
