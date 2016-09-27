@@ -2,10 +2,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <title>Warcraft Character Viewer</title>
+    <meta name="author" content="Jamie Maguire">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
+
+
 
 <table>
   <tr>
@@ -25,6 +29,18 @@
     <td id="level"></td>
   </tr>
 </table>
+
+<div class="input-container">
+    <div class="name-container">
+        <label class="input-label" for="charName">Character Name</label>
+        <input type="text" name="charName" id="charName">
+    </div>
+    <div class="realm-container">
+        <label class="input-label" for="charRealm">Character Realm</label>
+        <input type="text" name="charRealm" id="charRealm">
+    </div>
+    <input type="submit" value="SEND">
+</div>
 
 <script src="functions.js"></script>
 </body>
