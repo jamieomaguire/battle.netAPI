@@ -9,7 +9,7 @@ function getCORS(url, success) {
 
 // Access Battle.net api
 // Use your API key at the end of the url
-getCORS('https://eu.api.battle.net/wow/character/dentarg/vyrak?locale=en_GB&apikey=dd9ubhbxdqsegwwqmpxbkezby4455a47', function(request){
+getCORS('https://eu.api.battle.net/wow/character/dentarg/vyrak?locale=en_GB&apikey=', function(request){
 
     var response = request.currentTarget.response || request.target.responseText;
 
